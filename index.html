@@ -3,159 +3,176 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pivot Vending | Accessible Smart Coolers</title>
+    <title>Pivot Vending Solutions</title>
     <style>
-        /* DESIGN STYLES */
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-            color: #333;
-        }
+        /* BRAND COLORS: 
+           Green: #138418 
+           Grey:  #666666 
+           White: #FFFFFF 
+        */
 
-        /* Header / Hero Section */
-        header {
-            background-color: #0056b3; /* Professional Blue */
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
+        /* Basic Setup */
+        body { 
+            margin: 0; 
+            padding: 0; 
+            font-family: 'Segoe UI', Helvetica, Arial, sans-serif; 
+            color: #333; 
+            background-color: #FFFFFF;
+            line-height: 1.6; 
         }
-        header h1 { margin: 0; font-size: 3rem; font-weight: 700; }
-        header p { font-size: 1.5rem; font-weight: 300; margin-top: 10px; }
         
-        /* Layout */
-        .container {
-            width: 85%;
-            max-width: 1000px;
-            margin: auto;
-            padding: 20px;
+        .container { 
+            max-width: 800px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+            text-align: center; 
+        }
+        
+        /* Typography */
+        h1 { 
+            color: #222; /* Darker than grey for readability on main title */
+            font-size: 32px; 
+            margin-bottom: 10px; 
+            line-height: 1.3; 
+        }
+        
+        h2 { 
+            color: #666666; /* Your Brand Grey */
+            font-size: 20px; 
+            font-weight: normal; 
+            margin-bottom: 30px; 
+        }
+        
+        /* HEADLINE ACCENT COLOR (Brand Green) */
+        h3 { 
+            color: #138418; 
+            font-size: 22px; 
+            margin-top: 40px; 
+            margin-bottom: 15px; 
+        }
+        
+        /* Buttons */
+        .button-container { 
+            display: flex; 
+            flex-wrap: wrap; 
+            gap: 20px; 
+            justify-content: center; 
+            margin: 40px 0; 
+        }
+        
+        .btn { 
+            padding: 15px 30px; 
+            text-decoration: none; 
+            border-radius: 6px; 
+            font-weight: bold; 
+            font-size: 16px; 
+            transition: all 0.3s ease; 
+            display: inline-block; 
+        }
+        
+        /* PRIMARY BUTTON (Solid Brand Green) */
+        .btn-primary { 
+            background-color: #138418; 
+            color: white; 
+            border: 2px solid #138418; 
+        }
+        
+        .btn-primary:hover { 
+            background-color: #0e6312; /* Slightly darker for interaction */
+            border-color: #0e6312; 
+        } 
+        
+        /* SECONDARY BUTTON (White with Brand Green Outline) */
+        .btn-secondary { 
+            background-color: #FFFFFF; 
+            color: #138418; 
+            border: 2px solid #138418; 
+        }
+        
+        .btn-secondary:hover { 
+            background-color: #e8f5e9; /* Very light green mist on hover */
         }
 
-        /* Sections */
-        section { padding: 3rem 0; border-bottom: 1px solid #eee; }
-        h2 { color: #0056b3; font-size: 2rem; margin-bottom: 1rem; }
-        h3 { color: #444; font-size: 1.3rem; margin-top: 1.5rem; }
-
-        /* Feature Grid (The Machine Benefits) */
-        .features {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin-top: 20px;
+        /* Feature List (Machine Info) */
+        .features { 
+            text-align: left; 
+            background-color: #f9f9f9; 
+            padding: 30px; 
+            border-radius: 8px; 
+            margin-top: 20px; 
+            border-left: 6px solid #138418; /* Brand Green Accent */
         }
-        .feature-box {
-            flex: 1;
-            min-width: 250px;
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            border-left: 5px solid #0056b3;
+        
+        .feature-item { margin-bottom: 20px; }
+        
+        .feature-title { 
+            font-weight: bold; 
+            color: #138418; /* Brand Green */
+            display: block; 
+            margin-bottom: 5px; 
         }
-
-        /* Button */
-        .btn {
-            display: inline-block;
-            background: #e67e22; /* High contrast orange */
-            color: white;
-            padding: 15px 30px;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 1.1rem;
-            margin-top: 20px;
-            font-weight: bold;
-        }
-        .btn:hover { background: #d35400; }
 
         /* Footer */
-        footer {
-            background: #222;
-            color: white;
-            text-align: center;
-            padding: 2rem 0;
-            margin-top: 0;
+        footer { 
+            margin-top: 60px; 
+            padding-top: 20px; 
+            border-top: 1px solid #eee; 
+            font-size: 13px; 
+            color: #666666; /* Brand Grey */
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Pivot Vending</h1>
-            <p>Smart. Simple. Accessible.</p>
-            <p style="font-size: 1rem; opacity: 0.9;">The New Age of Vending for Disability & Aged Care</p>
-            <a href="#contact" class="btn">Enquire Now</a>
-        </div>
-    </header>
+    <div class="container">
+      /*  <img src="logo.png" alt="Pivot Vending Logo" style="max-width: 100%; width: 280px; height: auto; margin-bottom: 30px;"> */
 
-    <section id="why-pivot">
-        <div class="container">
-            <h2>Why We Are Different</h2>
-            <p>Traditional vending machines are often barriers, not conveniences. Keypads are hard to read, coin slots jam, and bending down to retrieve items is difficult for many.</p>
-            <p><strong>Pivot Vending changes that with AI Smart Cooler technology.</strong></p>
+        <h1>Perth’s Premium Vending Solutions for Every Workplace</h1>
+
+        <h2>From high-traffic warehouses to specialised healthcare facilities—we keep the team fueled.</h2>
+
+        <div class="button-container">
+            <a href="mailto:accounts@pivot-vending.au?subject=Vending Partnership Enquiry" class="btn btn-primary">
+               Enquire for Partnerships
+            </a>
             
-            <div class="features">
-                <div class="feature-box">
-                    <h3>Visual & Clear</h3>
-                    <p>No tiny codes. View products and costs clearly on the screen before you buy.</p>
-                </div>
-                <div class="feature-box">
-                    <h3>No Bending Required</h3>
-                    <p>Grab your items from the easy-access shelf. No bending down to a low chute.</p>
-                </div>
-                <div class="feature-box">
-                    <h3>Cashless & Simple</h3>
-                    <p>Just tap and go. Select multiple items and pay in one single transaction.</p>
-                </div>
+            <a href="mailto:YOUR_EMAIL@HERE.COM?subject=My Vending Wishlist" class="btn btn-secondary">
+               Make a Product Wish
+            </a>
+        </div>
+
+        <p style="font-weight: bold; color: #444;">
+            Currently accepting new sites and partnerships within the Perth region.
+        </p>
+
+        <h3>Our Technology & Service Standards</h3>
+        <div class="features">
+            <div class="feature-item">
+                <span class="feature-title">Cashless & Contactless Convenience</span>
+                Our modern machines accept all major cards and mobile payments, ensuring a seamless experience for staff and visitors without the need for loose change.
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Smart Inventory Monitoring</span>
+                We utilize remote telemetry to track stock levels in real-time. This means we restock before you run out—perfect for busy 24/7 warehouse shifts.
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Guaranteed Delivery Systems</span>
+                Equipped with 'Sure-Vend' technology. If a product doesn't drop, the machine automatically refunds the money. No frustration, no shaken machines.
+            </div>
+            <div class="feature-item">
+                <span class="feature-title">Accessible & Efficient</span>
+                Our units are energy-efficient and designed with accessibility in mind, making them suitable for diverse environments from industrial floors to care facility lounges.
             </div>
         </div>
-    </section>
 
-    <section id="about">
-        <div class="container">
-            <h2>Our Story</h2>
+        <footer>
             <p>
-                Pivot Vending was born from a lifetime of experience in the care sector. 
-                With over 30 years as a Midwife and Nurse, and currently operating as an SDA Provider, 
-                I understand the importance of <strong>dignity and independence</strong>.
+                <strong>Privacy Commitment:</strong> We adhere to strict confidentiality protocols suitable for corporate and healthcare environments. 
+                Any site details, contact information, or product requests submitted to us are kept private and never shared with third parties.
             </p>
-            <p>
-                I saw how difficult standard machines were for those with limited mobility. 
-                Pivot Vending is my solution: technology that makes the "little things" like buying a snack easy for everyone.
-            </p>
-        </div>
-    </section>
-
-    <section id="vision" style="background-color: #f4faff;">
-        <div class="container">
-            <h2>A Vision for Employment</h2>
-            <p>
-                We believe this technology is more than just a convenience; it is an opportunity.
-            </p>
-            <p>
-                Pivot Vending is actively seeking partnerships with disability organizations to explore how these easy-to-manage machines 
-                can become business opportunities for people with disabilities. The cashless, app-based tracking makes stock management 
-                accessible, opening doors for entrepreneurship.
-            </p>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container">
-            <h2>Partner With Us</h2>
-            <p>We are looking to place machines in accessible-focused locations across Perth.</p>
-            <p>
-                <strong>Email:</strong> access@pivotvending.au <br>
-                <strong>Location:</strong> Perth, Western Australia
-            </p>
-            <br>
-            <a href="mailto: access@pivotvending.au" class="btn">Send an Email</a>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2026 Pivot Vending. Proudly WA Owned & Operated.</p>
-    </footer>
+            <p>&copy; 2026 Pivot Vending. All rights reserved.</p>
+        </footer>
+    </div>
 
 </body>
 </html>
