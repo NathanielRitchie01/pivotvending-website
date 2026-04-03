@@ -3,15 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pivot Vending Solutions</title>
+    <title>Pivot Smart Coolers</title>
     <style>
-        /* BRAND COLORS: 
-           Green: #138418 
-           Grey:  #666666 
-           White: #FFFFFF 
-        */
+        /* BRAND COLORS */
+        /* Green: #138418 | Grey: #666666 | White: #FFFFFF */
 
-        /* Basic Setup */
         body { 
             margin: 0; 
             padding: 0; 
@@ -28,36 +24,80 @@
             text-align: center; 
         }
         
-        /* Typography */
+        /* BRAND NAME STYLING */
+        .brand-name {
+            font-size: 36px;
+            font-weight: bold;
+            color: #138418; /* Brand Green */
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+        }
+        
+        .brand-subtitle {
+            font-size: 14px;
+            color: #666666;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        /* HEADLINES */
         h1 { 
-            color: #222; /* Darker than grey for readability on main title */
+            color: #222; 
             font-size: 32px; 
-            margin-bottom: 10px; 
+            margin-bottom: 15px; 
             line-height: 1.3; 
         }
         
         h2 { 
-            color: #666666; /* Your Brand Grey */
-            font-size: 20px; 
+            color: #666666; 
+            font-size: 19px; 
             font-weight: normal; 
-            margin-bottom: 30px; 
+            margin-bottom: 20px; 
+        }
+
+        /* MACHINE IMAGE STYLING */
+        .machine-image {
+            max-width: 100%;
+            width: 400px; 
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
+            margin-bottom: 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* AMENITY NOTE */
+        .amenity-note {
+            background-color: #f0fdf4; 
+            color: #138418;
+            padding: 10px 20px;
+            display: inline-block;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 14px;
+            margin-bottom: 30px;
+            border: 1px solid #ccebd0;
         }
         
-        /* HEADLINE ACCENT COLOR (Brand Green) */
+        /* SECTION HEADERS */
         h3 { 
             color: #138418; 
             font-size: 22px; 
-            margin-top: 40px; 
-            margin-bottom: 15px; 
+            margin-top: 50px; 
+            margin-bottom: 20px; 
         }
         
-        /* Buttons */
+        /* BUTTONS */
         .button-container { 
             display: flex; 
             flex-wrap: wrap; 
             gap: 20px; 
             justify-content: center; 
-            margin: 40px 0; 
+            margin: 30px 0; 
         }
         
         .btn { 
@@ -70,107 +110,117 @@
             display: inline-block; 
         }
         
-        /* PRIMARY BUTTON (Solid Brand Green) */
+        /* PRIMARY BUTTON */
         .btn-primary { 
             background-color: #138418; 
             color: white; 
             border: 2px solid #138418; 
         }
-        
         .btn-primary:hover { 
-            background-color: #0e6312; /* Slightly darker for interaction */
+            background-color: #0e6312; 
             border-color: #0e6312; 
         } 
         
-        /* SECONDARY BUTTON (White with Brand Green Outline) */
+        /* SECONDARY BUTTON */
         .btn-secondary { 
             background-color: #FFFFFF; 
             color: #138418; 
             border: 2px solid #138418; 
         }
-        
         .btn-secondary:hover { 
-            background-color: #e8f5e9; /* Very light green mist on hover */
+            background-color: #e8f5e9; 
         }
 
-        /* Feature List (Machine Info) */
+        /* FEATURES LIST */
         .features { 
             text-align: left; 
             background-color: #f9f9f9; 
             padding: 30px; 
             border-radius: 8px; 
             margin-top: 20px; 
-            border-left: 6px solid #138418; /* Brand Green Accent */
+            border-left: 6px solid #138418; 
         }
         
         .feature-item { margin-bottom: 20px; }
         
         .feature-title { 
             font-weight: bold; 
-            color: #138418; /* Brand Green */
+            color: #138418; 
             display: block; 
             margin-bottom: 5px; 
         }
 
-        /* Footer */
+        /* FOOTER */
         footer { 
             margin-top: 60px; 
             padding-top: 20px; 
             border-top: 1px solid #eee; 
             font-size: 13px; 
-            color: #666666; /* Brand Grey */
+            color: #666666; 
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-      /*  <img src="logo.png" alt="Pivot Vending Logo" style="max-width: 100%; width: 280px; height: auto; margin-bottom: 30px;"> */
+        
+        <div class="brand-name">Pivot Vending</div>
+        <div class="brand-subtitle">Smart Cooler Solutions</div>
 
-        <h1>Perth’s Premium Vending Solutions for Every Workplace</h1>
+        <h1>Premium Refreshment Solutions for Modern Facilities</h1>
 
-        <h2>From high-traffic warehouses to specialised healthcare facilities—we keep the team fueled.</h2>
+        <img src="cooler.jpg" alt="Smart Cooler Technology" class="machine-image">
 
-        <div class="button-container">
-            <a href="mailto:access@pivotvending.au?subject=Vending Partnership Enquiry" class="btn btn-primary">
-               Enquire for Partnerships
-            </a>
-            
-            <a href="mailto:access@pivotvending.au?subject=My Vending Wishlist" class="btn btn-secondary">
-               Make a Product Wish
-            </a>
+        <h2>From industrial hubs to aged care & NDIS communities—we provide accessible, 24/7 nutrition.</h2>
+
+        <div class="amenity-note">
+            Zero Cost to Your Facility • Fully Managed Service
         </div>
 
-        <p style="font-weight: bold; color: #444;">
-            Currently accepting new sites and partnerships within the Perth region.
+        <div class="button-container">
+            
+            <a href="mailto:acess@pivotvending.ausubject=Smart Cooler Site Enquiry&body=Hi Pivot Team,%0D%0A%0D%0AI am interested in a Smart Cooler for my facility.%0D%0A%0D%0AFacility Name:%0D%0A[Type Name Here]%0D%0A%0D%0ALocation/Suburb:%0D%0A[Type Suburb Here]%0D%0A%0D%0AContact Phone:%0D%0A[Type Number Here]" 
+               class="btn btn-primary">
+               Enquire for Your Facility
+            </a>
+            
+            <a href="mailto:access@pivotvending.ausubject=My Product Wishlist&body=Hi Pivot Team,%0D%0A%0D%0AI would love to see this product in the machine:%0D%0A[Type Product Wish]%0D%0A%0D%0AMy Site Location:%0D%0A[Please Type Site Name Here]" 
+               class="btn btn-secondary">
+               Make a Product Wish 
+            </a>
+
+        </div>
+
+        <p style="font-weight: bold; color: #444; margin-top: 20px;">
+             Serving Metro & Regional WA
         </p>
 
-        <h3>Our Technology & Service Standards</h3>
+        <h3>The Smart Cooler Difference</h3>
         <div class="features">
             <div class="feature-item">
-                <span class="feature-title">Cashless & Contactless Convenience</span>
-                Our modern machines accept all major cards and mobile payments, ensuring a seamless experience for staff and visitors without the need for loose change.
+                <span class="feature-title"> Browse & Inspect Freedom</span>
+                Inspect products before you buy. Open the door to check freshness and labels, just like picking from a shelf. It offers the freedom of a market with the security of a smart system.
             </div>
             <div class="feature-item">
-                <span class="feature-title">Smart Inventory Monitoring</span>
-                We utilize remote telemetry to track stock levels in real-time. This means we restock before you run out—perfect for busy 24/7 warehouse shifts.
+                <span class="feature-title"> Automatic Product Recognition</span>
+                Our intelligent vision system instantly identifies what you select. No keypads, no codes, and no confusion—just seamless service.
             </div>
             <div class="feature-item">
-                <span class="feature-title">Guaranteed Delivery Systems</span>
-                Equipped with 'Sure-Vend' technology. If a product doesn't drop, the machine automatically refunds the money. No frustration, no shaken machines.
+                <span class="feature-title"> Multi-Item Basket</span>
+                Select a drink, a sandwich, and a snack all in one single transaction. The smart technology handles the total automatically as you close the door.
             </div>
             <div class="feature-item">
-                <span class="feature-title">Accessible & Efficient</span>
-                Our units are energy-efficient and designed with accessibility in mind, making them suitable for diverse environments from industrial floors to care facility lounges.
+                <span class="feature-title"> Smart Inventory Monitoring</span>
+                Remote telemetry tracks stock levels in real-time, allowing us to restock efficiently based on actual consumption data.
             </div>
         </div>
 
         <footer>
             <p>
                 <strong>Privacy Commitment:</strong> We adhere to strict confidentiality protocols suitable for corporate and healthcare environments. 
-                Any site details, contact information, or product requests submitted to us are kept private and never shared with third parties.
+                Any site details or contact information submitted to us are kept private.
             </p>
-            <p>&copy; 2026 Pivot Vending. All rights reserved.</p>
+            <p>&copy; 2026 Pivot Vending Solutions. All rights reserved.</p>
         </footer>
     </div>
 
