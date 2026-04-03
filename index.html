@@ -3,226 +3,525 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pivot Smart Coolers</title>
+    <title>Pivot Vending — Smart Cooler Solutions</title>
+    <link rel="icon" type="image/png" href = "Logo-Icon.png">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap" rel="stylesheet">
     <style>
-        /* BRAND COLORS */
-        /* Green: #138418 | Grey: #666666 | White: #FFFFFF */
+        :root {
+            --green: #138418;
+            --green-dark: #0e6312;
+            --green-mid: #1a6e1f;
+            --green-light: #f0faf0;
+            --grey: #666666;
+            --grey-light: #f5f5f5;
+            --grey-border: #e2e2e2;
+            --white: #FFFFFF;
+            --text: #1a1a1a;
+        }
 
-        body { 
-            margin: 0; 
-            padding: 0; 
-            font-family: 'Segoe UI', Helvetica, Arial, sans-serif; 
-            color: #333; 
-            background-color: #FFFFFF;
-            line-height: 1.6; 
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            color: var(--text);
+            background: var(--white);
+            overflow-x: hidden;
         }
-        
-        .container { 
-            max-width: 800px; 
-            margin: 0 auto; 
-            padding: 40px 20px; 
-            text-align: center; 
+
+        /* NAV */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 16px 48px;
+            background: #fff;
+            border-bottom: 1px solid var(--grey-border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
-        
-        /* BRAND NAME STYLING */
-        .brand-name {
-            font-size: 36px;
-            font-weight: bold;
-            color: #138418; /* Brand Green */
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            text-transform: uppercase;
-        }
-        
-        .brand-subtitle {
+        nav img.logo { height: 36px; }
+        .nav-cta {
+            background: var(--green);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 22px;
+            border-radius: 4px;
+            font-weight: 600;
             font-size: 14px;
-            color: #666666;
-            margin-bottom: 40px;
-            letter-spacing: 2px;
+            letter-spacing: 0.2px;
+            transition: background 0.15s;
+        }
+        .nav-cta:hover { background: var(--green-dark); }
+
+        /* HERO */
+        .hero {
+            background: linear-gradient(160deg, #1a5c1e 0%, #138418 55%, #1d9e23 100%);
+            color: #fff;
+            padding: 96px 48px 84px;
+            text-align: center;
+        }
+        .hero-eyebrow {
+            font-size: 11px;
+            letter-spacing: 3px;
             text-transform: uppercase;
+            color: rgba(255,255,255,0.65);
+            font-weight: 600;
+            margin-bottom: 20px;
         }
+        .hero h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(48px, 9vw, 80px);
+            line-height: 1.0;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            color: #fff;
+        }
+        .hero h1 em {
+            font-style: normal;
+            color: rgba(255,255,255,0.75);
+        }
+        .hero p {
+            font-size: clamp(15px, 2vw, 17px);
+            color: rgba(255,255,255,0.75);
+            max-width: 520px;
+            margin: 0 auto 40px;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+        .hero-btns {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn-solid-white {
+            background: #fff;
+            color: var(--green);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 14px;
+            transition: background 0.15s;
+        }
+        .btn-solid-white:hover { background: #e8f5e8; }
+        .btn-outline-white {
+            background: transparent;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid rgba(255,255,255,0.35);
+            transition: all 0.15s;
+        }
+        .btn-outline-white:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
 
-        /* HEADLINES */
-        h1 { 
-            color: #222; 
-            font-size: 32px; 
-            margin-bottom: 15px; 
-            line-height: 1.3; 
+        /* ZERO COST BAR */
+        .zcost-bar {
+            background: var(--green-dark);
+            color: #fff;
+            padding: 18px 48px;
         }
-        
-        h2 { 
-            color: #666666; 
-            font-size: 19px; 
-            font-weight: normal; 
-            margin-bottom: 20px; 
+        .zcost-bar-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-wrap: wrap;
         }
+        .zcost-item {
+            padding: 4px 32px;
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.3px;
+            border-right: 1px solid rgba(255,255,255,0.25);
+            text-align: center;
+        }
+        .zcost-item:last-child { border-right: none; }
 
-        /* MACHINE IMAGE STYLING */
-        .machine-image {
-            max-width: 100%;
-            width: 400px; 
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); 
-            margin-bottom: 30px;
+        /* SPLIT SECTION */
+        .split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 560px;
+        }
+        .split-image {
+            background: var(--grey-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 40px;
+        }
+        .split-image img {
+            width: 100%;
+            max-width: 340px;
+            border-radius: 8px;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.12);
             display: block;
+        }
+        .split-content {
+            padding: 70px 56px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-left: 1px solid var(--grey-border);
+        }
+        .eyebrow {
+            font-size: 11px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--green);
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+        .split-content h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.08;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        .split-content p.lead {
+            font-size: 15px;
+            color: var(--grey);
+            line-height: 1.75;
+            font-weight: 300;
+            max-width: 420px;
+            margin-bottom: 36px;
+        }
+        .cost-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+        .cost-card {
+            background: var(--green-light);
+            border-radius: 6px;
+            padding: 18px 16px;
+            border-left: 3px solid var(--green);
+        }
+        .cost-card h4 {
+            font-size: 13px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--text);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .cost-card p {
+            font-size: 13px;
+            color: var(--grey);
+            line-height: 1.5;
+        }
+
+        /* FEATURES */
+        .features-section {
+            padding: 80px 48px;
+            background: var(--white);
+            border-top: 1px solid var(--grey-border);
+        }
+        .features-header {
+            max-width: 1000px;
+            margin: 0 auto 50px;
+        }
+        .features-header h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(32px, 4vw, 46px);
+            line-height: 1.08;
+            margin-bottom: 10px;
+        }
+        .features-header p {
+            font-size: 15px;
+            color: var(--grey);
+            font-weight: 300;
+            line-height: 1.7;
+        }
+        .features-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1px;
+            background: var(--grey-border);
+            border: 1px solid var(--grey-border);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        .feature-card {
+            background: var(--white);
+            padding: 32px 26px;
+        }
+        .feature-num {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 42px;
+            line-height: 1;
+            margin-bottom: 10px;
+            -webkit-text-stroke: 1.5px var(--green);
+            color: transparent;
+        }
+        .feature-card h4 {
+            font-size: 14px;
+            font-weight: 700;
+            color: var(--text);
+            margin-bottom: 10px;
+            line-height: 1.3;
+        }
+        .feature-card p {
+            font-size: 13px;
+            color: var(--grey);
+            line-height: 1.65;
+        }
+
+        /* SERVE SECTION */
+        .serve-section {
+            background: var(--grey-light);
+            border-top: 1px solid var(--grey-border);
+            padding: 70px 48px;
+            text-align: center;
+        }
+        .serve-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(30px, 4vw, 44px);
+            margin-bottom: 10px;
+        }
+        .serve-section .sub {
+            font-size: 15px;
+            color: var(--grey);
+            font-weight: 300;
+            margin-bottom: 36px;
+        }
+        .serve-grid {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+            max-width: 760px;
+            margin: 0 auto;
+        }
+        .serve-pill {
+            background: var(--white);
+            border: 1px solid var(--grey-border);
+            border-radius: 4px;
+            padding: 10px 20px;
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--text);
+            letter-spacing: 0.2px;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            background: linear-gradient(160deg, #1a5c1e 0%, #138418 55%, #1d9e23 100%);
+            padding: 80px 48px;
+            text-align: center;
+            color: #fff;
+        }
+        .cta-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: clamp(36px, 5vw, 58px);
+            margin-bottom: 14px;
+            line-height: 1.05;
+        }
+        .cta-section p {
+            font-size: 16px;
+            color: rgba(255,255,255,0.8);
+            margin-bottom: 36px;
+            max-width: 480px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
+            font-weight: 300;
         }
-
-        /* AMENITY NOTE */
-        .amenity-note {
-            background-color: #f0fdf4; 
-            color: #138418;
-            padding: 10px 20px;
-            display: inline-block;
-            border-radius: 50px;
-            font-weight: bold;
+        .cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+        .btn-white {
+            background: #fff;
+            color: var(--green);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 700;
             font-size: 14px;
-            margin-bottom: 30px;
-            border: 1px solid #ccebd0;
+            transition: background 0.15s;
         }
-        
-        /* SECTION HEADERS */
-        h3 { 
-            color: #138418; 
-            font-size: 22px; 
-            margin-top: 50px; 
-            margin-bottom: 20px; 
+        .btn-white:hover { background: #e8f5e8; }
+        .btn-outline-cta {
+            background: transparent;
+            color: rgba(255,255,255,0.85);
+            text-decoration: none;
+            padding: 14px 30px;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 14px;
+            border: 2px solid rgba(255,255,255,0.35);
+            transition: all 0.15s;
         }
-        
-        /* BUTTONS */
-        .button-container { 
-            display: flex; 
-            flex-wrap: wrap; 
-            gap: 20px; 
-            justify-content: center; 
-            margin: 30px 0; 
-        }
-        
-        .btn { 
-            padding: 15px 30px; 
-            text-decoration: none; 
-            border-radius: 6px; 
-            font-weight: bold; 
-            font-size: 16px; 
-            transition: all 0.3s ease; 
-            display: inline-block; 
-        }
-        
-        /* PRIMARY BUTTON */
-        .btn-primary { 
-            background-color: #138418; 
-            color: white; 
-            border: 2px solid #138418; 
-        }
-        .btn-primary:hover { 
-            background-color: #0e6312; 
-            border-color: #0e6312; 
-        } 
-        
-        /* SECONDARY BUTTON */
-        .btn-secondary { 
-            background-color: #FFFFFF; 
-            color: #138418; 
-            border: 2px solid #138418; 
-        }
-        .btn-secondary:hover { 
-            background-color: #e8f5e9; 
-        }
-
-        /* FEATURES LIST */
-        .features { 
-            text-align: left; 
-            background-color: #f9f9f9; 
-            padding: 30px; 
-            border-radius: 8px; 
-            margin-top: 20px; 
-            border-left: 6px solid #138418; 
-        }
-        
-        .feature-item { margin-bottom: 20px; }
-        
-        .feature-title { 
-            font-weight: bold; 
-            color: #138418; 
-            display: block; 
-            margin-bottom: 5px; 
-        }
+        .btn-outline-cta:hover { border-color: rgba(255,255,255,0.7); color: #fff; }
 
         /* FOOTER */
-        footer { 
-            margin-top: 60px; 
-            padding-top: 20px; 
-            border-top: 1px solid #eee; 
-            font-size: 13px; 
-            color: #666666; 
+        footer {
+            background: #1a3d1c;
+            color: rgba(255,255,255,0.45);
+            padding: 44px 48px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        footer img { height: 28px; filter: brightness(0) invert(1); opacity: 0.6; }
+        footer p { font-size: 12px; line-height: 1.7; max-width: 480px; }
+        footer .copy { font-size: 12px; white-space: nowrap; }
+
+        /* MOBILE */
+        @media (max-width: 900px) {
+            .features-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 768px) {
+            nav { padding: 14px 20px; }
+            .hero { padding: 64px 20px 56px; }
+            .zcost-bar { padding: 14px 20px; }
+            .zcost-item { padding: 6px 14px; font-size: 12px; border-right: none; }
+            .split { grid-template-columns: 1fr; }
+            .split-image { padding: 40px 24px; }
+            .split-content { padding: 40px 24px; border-left: none; border-top: 1px solid var(--grey-border); }
+            .cost-cards { grid-template-columns: 1fr; }
+            .features-section { padding: 56px 20px; }
+            .serve-section { padding: 56px 20px; }
+            .cta-section { padding: 56px 20px; }
+            footer { padding: 36px 20px; flex-direction: column; align-items: flex-start; gap: 16px; }
+        }
+        @media (max-width: 560px) {
+            .features-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        
-        <div class="brand-name">Pivot Vending</div>
-        <div class="brand-subtitle">Smart Cooler Solutions</div>
+<!-- NAV -->
+<nav>
+    <img src='Logo-Icon.png' alt='Pivot Vending' class="logo" >
+    <a href="mailto:access@pivotvending.au?subject=Smart Cooler Site Enquiry&body=Hi Pivot Team,%0D%0A%0D%0AI am interested in a Smart Cooler for my facility.%0D%0A%0D%0AFacility Name:%0D%0A[Type Name Here]%0D%0A%0D%0ALocation/Suburb:%0D%0A[Type Suburb Here]%0D%0A%0D%0AContact Phone:%0D%0A[Type Number Here]" class="nav-cta">Get a Free Cooler</a>
+</nav>
 
-        <h1>Premium Refreshment Solutions for Modern Facilities</h1>
-
-        <img src="cooler.jpg" alt="Smart Cooler Technology" class="machine-image">
-
-        <h2>From industrial hubs to aged care & NDIS communities—we provide accessible, 24/7 nutrition.</h2>
-
-        <div class="amenity-note">
-            Zero Cost to Your Facility • Fully Managed Service
-        </div>
-
-        <div class="button-container">
-            
-            <a href="mailto:acess@pivotvending.ausubject=Smart Cooler Site Enquiry&body=Hi Pivot Team,%0D%0A%0D%0AI am interested in a Smart Cooler for my facility.%0D%0A%0D%0AFacility Name:%0D%0A[Type Name Here]%0D%0A%0D%0ALocation/Suburb:%0D%0A[Type Suburb Here]%0D%0A%0D%0AContact Phone:%0D%0A[Type Number Here]" 
-               class="btn btn-primary">
-               Enquire for Your Facility
-            </a>
-            
-            <a href="mailto:access@pivotvending.ausubject=My Product Wishlist&body=Hi Pivot Team,%0D%0A%0D%0AI would love to see this product in the machine:%0D%0A[Type Product Wish]%0D%0A%0D%0AMy Site Location:%0D%0A[Please Type Site Name Here]" 
-               class="btn btn-secondary">
-               Make a Product Wish 
-            </a>
-
-        </div>
-
-        <p style="font-weight: bold; color: #444; margin-top: 20px;">
-             Serving Metro & Regional WA
-        </p>
-
-        <h3>The Smart Cooler Difference</h3>
-        <div class="features">
-            <div class="feature-item">
-                <span class="feature-title"> Browse & Inspect Freedom</span>
-                Inspect products before you buy. Open the door to check freshness and labels, just like picking from a shelf. It offers the freedom of a market with the security of a smart system.
-            </div>
-            <div class="feature-item">
-                <span class="feature-title"> Automatic Product Recognition</span>
-                Our intelligent vision system instantly identifies what you select. No keypads, no codes, and no confusion—just seamless service.
-            </div>
-            <div class="feature-item">
-                <span class="feature-title"> Multi-Item Basket</span>
-                Select a drink, a sandwich, and a snack all in one single transaction. The smart technology handles the total automatically as you close the door.
-            </div>
-            <div class="feature-item">
-                <span class="feature-title"> Smart Inventory Monitoring</span>
-                Remote telemetry tracks stock levels in real-time, allowing us to restock efficiently based on actual consumption data.
-            </div>
-        </div>
-
-        <footer>
-            <p>
-                <strong>Privacy Commitment:</strong> We adhere to strict confidentiality protocols suitable for corporate and healthcare environments. 
-                Any site details or contact information submitted to us are kept private.
-            </p>
-            <p>&copy; 2026 Pivot Vending Solutions. All rights reserved.</p>
-        </footer>
+<!-- HERO -->
+<div class="hero">
+    <div class="hero-eyebrow">Serving Metro &amp; Regional WA</div>
+    <h1>Smart Coolers.<br><em>Zero Cost</em> to You.</h1>
+    <p>We install, stock, and maintain AI-powered smart coolers in your facility — completely free of charge. No contracts, no hassle.</p>
+    <div class="hero-btns">
+        <a href="mailto:access@pivotvending.au?subject=Smart Cooler Site Enquiry&body=Hi Pivot Team,%0D%0A%0D%0AI am interested in a Smart Cooler for my facility.%0D%0A%0D%0AFacility Name:%0D%0A[Type Name Here]%0D%0A%0D%0ALocation/Suburb:%0D%0A[Type Suburb Here]%0D%0A%0D%0AContact Phone:%0D%0A[Type Number Here]" class="btn-solid-white">Enquire for Your Facility</a>
+        <a href="mailto:access@pivotvending.au?subject=My Product Wishlist&body=Hi Pivot Team,%0D%0A%0D%0AI would love to see this product in the machine:%0D%0A[Type Product Wish]%0D%0A%0D%0AMy Site Location:%0D%0A[Please Type Site Name Here]" class="btn-outline-white">Make a Product Wish</a>
     </div>
+</div>
+
+<!-- ZERO COST BAR -->
+<div class="zcost-bar">
+    <div class="zcost-bar-inner">
+        <div class="zcost-item">Zero Installation Cost</div>
+        <div class="zcost-item">Zero Stocking Cost</div>
+        <div class="zcost-item">Zero Maintenance Cost</div>
+        <div class="zcost-item">Fully Managed by Us</div>
+    </div>
+</div>
+
+<!-- SPLIT: IMAGE + HOW IT WORKS -->
+<div class="split">
+    <div class="split-image">
+        <img src = 'Cooler.jpg' alt='Pivot Smart Cooler'>
+    </div>
+    <div class="split-content">
+        <div class="eyebrow">How It Works</div>
+        <h2>Your Facility Gets a Premium Amenity. We Handle Everything.</h2>
+        <p class="lead">We take care of the full operation so you don't have to lift a finger — a genuine no-cost value-add for your team, residents, or clients.</p>
+        <div class="cost-cards">
+            <div class="cost-card">
+                <h4>We Install It</h4>
+                <p>Full setup and commissioning at no charge to your facility.</p>
+            </div>
+            <div class="cost-card">
+                <h4>We Stock It</h4>
+                <p>Regular restocking based on real-time data — never empty.</p>
+            </div>
+            <div class="cost-card">
+                <h4>We Maintain It</h4>
+                <p>All servicing and repairs handled promptly by our team.</p>
+            </div>
+            <div class="cost-card">
+                <h4>You Pay Nothing</h4>
+                <p>No hidden fees, no lock-in contracts. Just a free amenity.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- FEATURES -->
+<div class="features-section">
+    <div class="features-header">
+        <div class="eyebrow">Technology</div>
+        <h2>The Smart Cooler Difference</h2>
+        <p>Not your average vending machine. Our AI-powered coolers offer a genuinely premium, retail-like experience.</p>
+    </div>
+    <div class="features-grid">
+        <div class="feature-card">
+            <div class="feature-num">01</div>
+            <h4>Browse &amp; Inspect Freedom</h4>
+            <p>Open the door to check freshness and labels before buying — just like picking from a shop shelf.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-num">02</div>
+            <h4>Automatic Product Recognition</h4>
+            <p>Intelligent vision identifies what you select instantly. No keypads, no codes, no confusion.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-num">03</div>
+            <h4>Multi-Item Basket</h4>
+            <p>Grab a drink, a sandwich, and a snack — all charged in one seamless transaction when you close the door.</p>
+        </div>
+        <div class="feature-card">
+            <div class="feature-num">04</div>
+            <h4>Smart Inventory Monitoring</h4>
+            <p>Remote telemetry tracks stock levels in real-time so restocking is always timely and accurate.</p>
+        </div>
+    </div>
+</div>
+
+<!-- WHO WE SERVE -->
+<div class="serve-section">
+    <div class="eyebrow">Who We Serve</div>
+    <h2>Built for the Places People Work &amp; Live</h2>
+    <p class="sub">From industrial hubs to aged care and NDIS communities — accessible, 24/7 nutrition wherever it's needed.</p>
+    <div class="serve-grid">
+        <div class="serve-pill">Industrial &amp; Warehousing</div>
+        <div class="serve-pill">Healthcare &amp; Aged Care</div>
+        <div class="serve-pill">NDIS Communities</div>
+        <div class="serve-pill">Corporate Offices</div>
+        <div class="serve-pill">Education Facilities</div>
+        <div class="serve-pill">Gyms &amp; Recreation</div>
+        <div class="serve-pill">Construction Sites</div>
+        <div class="serve-pill">Accommodation</div>
+    </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+    <h2>Ready to Add a Free Amenity<br>to Your Facility?</h2>
+    <p>It takes two minutes to enquire. We handle everything from there — installation, stocking, and ongoing management at zero cost.</p>
+    <div class="cta-btns">
+        <a href="mailto:access@pivotvending.au?subject=Smart Cooler Site Enquiry&body=Hi Pivot Team,%0D%0A%0D%0AI am interested in a Smart Cooler for my facility.%0D%0A%0D%0AFacility Name:%0D%0A[Type Name Here]%0D%0A%0D%0ALocation/Suburb:%0D%0A[Type Suburb Here]%0D%0A%0D%0AContact Phone:%0D%0A[Type Number Here]" class="btn-white">Enquire for Your Facility</a>
+        <a href="mailto:access@pivotvending.au?subject=My Product Wishlist&body=Hi Pivot Team,%0D%0A%0D%0AI would love to see this product in the machine:%0D%0A[Type Product Wish]%0D%0A%0D%0AMy Site Location:%0D%0A[Please Type Site Name Here]" class="btn-outline-cta">Make a Product Wish</a>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <img src='Logo-Full.png' alt='Pivot Vending Full Logo'>
+    <p><strong style="color:rgba(255,255,255,0.6)">Privacy Commitment:</strong> We adhere to strict confidentiality protocols suitable for corporate and healthcare environments. Site details and contact information submitted to us are kept strictly private.</p>
+    <span class="copy">&copy; 2026 Pivot Vending Solutions</span>
+</footer>
 
 </body>
 </html>
